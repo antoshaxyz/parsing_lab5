@@ -17,10 +17,8 @@ public class Parser {
         List<String> currencyRates = new ArrayList<>();
 
         try {
-            // Преобразуем строку в InputStream
             ByteArrayInputStream inputStream = new ByteArrayInputStream(xmlString.getBytes("UTF-8"));
 
-            // Парсим XML
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document document = builder.parse(inputStream);

@@ -1,7 +1,7 @@
 package com.example.parsing_lab5;
 
-import com.example.parsing_lab5.MainActivity;
 import android.os.AsyncTask;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -14,6 +14,11 @@ public class DataLoader extends AsyncTask<String, Void, String> {
 
     public DataLoader(MainActivity activity) {
         this.activity = activity;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        activity.showLoading(true);
     }
 
     @Override
@@ -37,6 +42,7 @@ public class DataLoader extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
+        activity.showLoading(false);
         if (result != null) {
             List<String> parsedData = Parser.parseXML(result);
             activity.updateCurrencyList(parsedData);

@@ -6,14 +6,27 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/headerText"
+        android:id="@+id/baseCurrencyLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dollar Exchange Rates"
-        android:textSize="20sp"
+        android:text="Select Base Currency"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:gravity="center"
+        android:layout_marginBottom="8dp"/>
+
+    <Spinner
+        android:id="@+id/baseCurrencySpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/searchFilter"
