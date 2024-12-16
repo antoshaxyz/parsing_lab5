@@ -42,17 +42,14 @@ public class MainActivity extends AppCompatActivity {
 
         currencyList = new ArrayList<>();
 
-        // Список базовых валют: только USD и EUR
         String[] baseCurrencies = {"USD", "EUR"};
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, baseCurrencies);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         baseCurrencySpinner.setAdapter(spinnerAdapter);
 
-        // Восстановление последней выбранной валюты
         String lastCurrency = prefs.getString("base_currency", "USD");
         baseCurrencySpinner.setSelection(spinnerAdapter.getPosition(lastCurrency));
 
-        // Обработчик выбора валюты
         baseCurrencySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -69,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {}
         });
 
-        // Фильтрация списка валют
         searchFilter.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
